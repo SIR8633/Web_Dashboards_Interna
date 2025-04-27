@@ -350,3 +350,30 @@ footer {
 }
 
 /* === Fin Estilos Botón Volver Arriba === */
+
+/* === Estilos para iframes de Power BI Embebidos === */
+.dashboard-item iframe {
+  display: block; /* Asegura que ocupe su propio espacio */
+  width: 100%; /* Ocupar todo el ancho de la tarjeta contenedora */
+  min-height: 500px; /* Altura mínima razonable para ver el reporte. ¡AJUSTA SEGÚN NECESITES! */
+  /* Alternativa: Usar aspect-ratio si conoces la proporción del reporte (ej. 16/9) */
+  /* aspect-ratio: 16 / 9; */
+  /* height: auto; */ /* Necesario si usas aspect-ratio */
+  border: none; /* Asegurar que no haya borde del iframe */
+  background-color: #f8f9fa; /* Fondo claro mientras carga (opcional) */
+}
+
+/* Ajuste opcional: Si el iframe llena toda la tarjeta, quizás quieras quitarle el padding a esa tarjeta específica */
+/* O puedes darle una clase especial a ese .dashboard-item y quitarle el padding */
+/* .dashboard-item.has-iframe { */
+/* padding: 0; */
+/* border: none; */ /* Quizás quitar borde y sombra también */
+/* box-shadow: none; */
+/* } */
+
+/* Ajuste opcional: Si mantienes el h3 encima del iframe */
+.dashboard-item h3 + iframe {
+    margin-top: 15px; /* Añadir espacio entre el título y el iframe si ambos están presentes */
+}
+
+/* === Fin Estilos iframes Power BI === */
