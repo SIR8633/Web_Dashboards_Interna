@@ -1,0 +1,352 @@
+/* === Importar Fuente (Opcional - Si la añadiste en HTML) === */
+/* No es necesario si usaste <link> en HTML */
+
+/* === Variables CSS Inspiradas en DDM === */
+:root {
+  --ddm-naranja-primario: #f37021; /* Naranja DDM (Estimado) */
+  --ddm-blanco: #ffffff;
+  --ddm-gris-oscuro-texto: #333333; /* Para texto principal */
+  --ddm-gris-medio-texto: #555555; /* Para texto secundario/descripciones */
+  --ddm-gris-claro-fondo: #ffffff; /* Fondo principal blanco */
+  --ddm-gris-borde-sutil: #eaeaea; /* Borde muy claro para tarjetas/separadores */
+  --fuente-principal: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente principal (Montserrat primero) */
+  --max-width-container: 1200px; /* Ancho máximo del contenido */
+}
+
+/* === Estilos Generales y Reseteo Básico === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Desplazamiento suave si se usan anclas */
+}
+
+body {
+  font-family: var(--fuente-principal);
+  line-height: 1.7; /* Un poco más de espacio entre líneas */
+  color: var(--ddm-gris-oscuro-texto);
+  background-color: var(--ddm-gris-claro-fondo);
+  /* Eliminamos padding del body, lo manejaremos con el container */
+}
+
+/* === Contenedor Principal === */
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto; /* Centra el contenedor */
+  padding: 0 20px; /* Espacio lateral para que el contenido no pegue a los bordes */
+  width: 100%;
+}
+
+/* === Cabecera (Header) === */
+header {
+  background-color: var(--ddm-naranja-primario);
+  color: var(--ddm-blanco);
+  padding: 20px 0; /* Espacio vertical */
+  margin-bottom: 40px; /* Más espacio debajo del header */
+  /* Quitamos border-radius para esquinas rectas como DDM */
+}
+
+/* Contenedor del Header con Flexbox (PARA LOGO) */
+.header-container {
+  display: flex; /* Activa Flexbox */
+  align-items: center; /* Alinea verticalmente el logo y el texto */
+  gap: 20px; /* Espacio entre el logo y el bloque de texto */
+  justify-content: flex-start; /* Alinea logo y texto a la izquierda por defecto */
+}
+
+/* Estilo para el Logo */
+#logo-header {
+  max-height: 45px; /* Ajusta esta altura según el tamaño deseado para tu logo */
+  width: auto; /* Mantiene la proporción */
+}
+
+/* Estilo para el bloque de texto del header */
+.header-text {
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* REGLA CONFLICTIVA ELIMINADA: */
+/* header .container { text-align: center; } */
+
+
+header h1 {
+  margin-bottom: 8px;
+  font-weight: 700; /* Fuente más gruesa para el título principal */
+}
+
+header p {
+    font-size: 0.95em;
+    opacity: 0.9; /* Hacer la descripción ligeramente menos prominente */
+}
+
+
+/* === Contenido Principal (Main) === */
+main {
+  /* El padding se maneja ahora con el .container */
+}
+
+/* === Estilos Filtros de Sección === */
+#section-filters {
+  text-align: center; /* Centra los botones */
+  margin-bottom: 25px; /* Espacio debajo de los botones de filtro */
+}
+
+.filter-btn {
+  background-color: #f0f0f0; /* Fondo gris claro */
+  border: 1px solid #ddd;
+  color: var(--ddm-gris-medio-texto); /* Texto gris */
+  padding: 10px 20px;
+  margin: 5px; /* Espacio alrededor de cada botón */
+  cursor: pointer;
+  border-radius: 20px; /* Bordes redondeados */
+  font-family: var(--fuente-principal);
+  font-size: 0.9em;
+  font-weight: 400; /* Asegurar peso normal por defecto */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #e0e0e0; /* Gris un poco más oscuro al pasar el ratón */
+  border-color: #ccc;
+}
+
+/* Estilo para el botón activo */
+.filter-btn.active {
+  background-color: var(--ddm-naranja-primario); /* Fondo naranja */
+  color: var(--ddm-blanco); /* Texto blanco */
+  border-color: var(--ddm-naranja-primario); /* Borde naranja */
+  font-weight: 700; /* Texto en negrita */
+}
+/* === Fin Estilos Filtros de Sección === */
+
+
+/* === Estilos Campo de Búsqueda === */
+#search-container {
+  margin-top: 20px; /* Espacio encima del campo de búsqueda */
+  margin-bottom: 40px; /* Espacio debajo del campo de búsqueda */
+}
+
+#search-input {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 12px 15px; /* Padding interno cómodo */
+  font-size: 1em; /* Tamaño de fuente similar al texto base */
+  font-family: var(--fuente-principal);
+  border: 1px solid var(--ddm-gris-borde-sutil); /* Borde sutil */
+  border-radius: 25px; /* Bordes redondeados, similar a los botones de filtro */
+  outline: none; /* Quitar el contorno por defecto */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search-input:focus {
+  border-color: var(--ddm-naranja-primario); /* Borde naranja al enfocar */
+  box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.2); /* Sombra suave naranja al enfocar */
+}
+
+/* Estilos específicos para el botón de limpiar (x) que aparece en type="search" */
+#search-input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+#search-input::-moz-search-cancel-button {
+     cursor: pointer;
+}
+/* === Fin Estilos Campo de Búsqueda === */
+
+
+/* === Estilos de Sección === */
+.dashboard-section {
+  margin-bottom: 50px; /* Espacio debajo de cada sección */
+}
+
+/* Título de Sección (h2) */
+.dashboard-section h2 {
+  font-size: 1.8em; /* Tamaño más grande para títulos de sección */
+  color: var(--ddm-gris-oscuro-texto); /* Color oscuro para el título */
+  margin-bottom: 30px; /* Más espacio debajo del título */
+  text-align: left; /* Alineación izquierda, más estándar */
+  font-weight: 700;
+  border-bottom: 2px solid var(--ddm-naranja-primario); /* Línea naranja debajo del título */
+  padding-bottom: 10px; /* Espacio entre texto y línea */
+  display: inline-block; /* Para que el borde no ocupe todo el ancho */
+}
+
+/* Línea divisoria entre secciones (más sutil) */
+.dashboard-section:not(:first-of-type) {
+  border-top: 1px solid var(--ddm-gris-borde-sutil);
+  padding-top: 50px; /* Espacio encima de la línea */
+}
+
+/* === Cuadrícula de Dashboards === */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; /* Un poco más de espacio entre tarjetas */
+}
+
+/* === Tarjeta de Dashboard === */
+.dashboard-item {
+  background-color: var(--ddm-blanco);
+  border: 1px solid var(--ddm-gris-borde-sutil); /* Borde muy sutil */
+  border-radius: 8px; /* Esquinas un poco más redondeadas */
+  padding: 25px; /* Más padding interno */
+  text-align: left; /* Alineación izquierda para el contenido */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease; /* Añadida opacidad a transición */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Sombra más sutil estilo DDM */
+  display: flex; /* Usar flexbox para controlar el contenido interno */
+  flex-direction: column; /* Alinear contenido verticalmente */
+}
+
+.dashboard-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); /* Sombra ligeramente más pronunciada al pasar el ratón */
+}
+
+/* Enlace principal de la tarjeta */
+.dashboard-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Imagen de la tarjeta */
+.dashboard-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px; /* Redondeo para la imagen */
+  margin-bottom: 15px;
+  border: none; /* Quitamos el borde de la imagen */
+  display: block; /* Evitar espacio extra debajo de la imagen */
+}
+
+/* Título de la tarjeta (h3) */
+.dashboard-item h3 {
+  font-size: 1.15em;
+  margin-bottom: 10px;
+  color: var(--ddm-naranja-primario); /* Título de tarjeta en naranja */
+  font-weight: 700;
+  transition: color 0.2s ease; /* Transición de color al pasar el ratón por el enlace */
+}
+
+.dashboard-item a:hover h3 {
+    color: var(--ddm-gris-oscuro-texto); /* Cambiar color del título al pasar el ratón por el enlace */
+}
+
+/* Descripción de la tarjeta (p) */
+.dashboard-item p {
+  font-size: 0.9em;
+  color: var(--ddm-gris-medio-texto);
+  flex-grow: 1; /* Empuja el footer (si lo hubiera) hacia abajo */
+  margin-bottom: 0; /* Quitar margen inferior si es el último elemento */
+}
+
+/* === Pie de Página (Footer) === */
+footer {
+  margin-top: 60px; /* Más espacio antes del footer */
+  padding: 30px 0; /* Más espacio vertical en el footer */
+  border-top: 1px solid var(--ddm-gris-borde-sutil);
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--ddm-gris-medio-texto);
+}
+
+/* === Media Queries para Responsividad Básica === */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  .dashboard-section h2 {
+      font-size: 1.5em;
+  }
+  .dashboard-grid {
+    gap: 20px; /* Menos espacio entre tarjetas en pantallas medianas/pequeñas */
+  }
+  .dashboard-item {
+      padding: 20px; /* Menos padding en tarjetas */
+  }
+  #section-filters {
+      margin-bottom: 30px;
+  }
+  #search-container {
+      margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+    body {
+        /* Podrías reducir ligeramente el line-height si es necesario */
+    }
+    /* Ajustar flexbox del header para apilar en móvil */
+    .header-container {
+        flex-direction: column; /* Apila logo y texto */
+        gap: 10px;
+    }
+    .header-text {
+        text-align: center; /* Centra el texto cuando está apilado */
+    }
+
+    header h1 {
+        font-size: 1.6em;
+    }
+    .dashboard-section h2 {
+        font-size: 1.3em;
+        display: block; /* Permitir que el título ocupe todo el ancho y la línea también */
+        text-align: center; /* Centrar títulos en móvil si se prefiere */
+        border-bottom: none; /* Quitar borde inferior en móvil si se prefiere */
+        padding-bottom: 0;
+    }
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    #search-input {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+    .dashboard-item h3 {
+        font-size: 1.1em;
+    }
+    .dashboard-item p {
+        font-size: 0.85em;
+    }
+    /* Forzar una columna en móvil si se desea */
+    /* .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    } */
+}
+
+/* === Estilos Botón Volver Arriba === */
+#scrollTopBtn {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Posición fija relativa a la ventana */
+  bottom: 30px; /* Distancia desde abajo */
+  right: 30px; /* Distancia desde la derecha */
+  z-index: 99; /* Asegurar que esté sobre otros elementos */
+  border: none; /* Sin borde */
+  outline: none; /* Sin contorno al hacer clic */
+  background-color: var(--ddm-naranja-primario); /* Color de fondo naranja */
+  color: var(--ddm-blanco); /* Color del icono/texto blanco */
+  cursor: pointer; /* Cursor de mano */
+  padding: 10px 15px; /* Padding interno */
+  border-radius: 50%; /* Hacerlo circular */
+  font-size: 18px; /* Tamaño del icono/texto */
+  opacity: 0; /* Inicialmente invisible (para transición suave) */
+  visibility: hidden; /* Oculto para accesibilidad */
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease; /* Transiciones suaves */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+#scrollTopBtn.visible {
+  display: block; /* Asegurar que ocupa espacio cuando es visible */
+  opacity: 1; /* Totalmente visible */
+  visibility: visible; /* Visible para accesibilidad */
+}
+
+#scrollTopBtn:hover {
+  background-color: #e06000; /* Naranja un poco más oscuro al pasar el ratón (ajusta si es necesario) */
+}
+
+/* === Fin Estilos Botón Volver Arriba === */
