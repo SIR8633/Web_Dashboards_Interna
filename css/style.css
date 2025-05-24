@@ -168,7 +168,6 @@ main {
 }
 
 /* === Cuadrícula de Dashboards (Para secciones de enlaces) === */
-/* Estas reglas se aplican a las secciones que NO son 'section-embedded-reports' */
 .dashboard-section:not(#section-embedded-reports) .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -230,8 +229,6 @@ main {
 
 
 /* === Estilos para Sección de Comparación de Dashboards Embebidos === */
-/* (Anteriormente `#section-embedded-reports .dashboard-grid` y sus items) */
-
 .comparison-controls {
   display: flex;
   flex-wrap: wrap; 
@@ -264,25 +261,26 @@ main {
   cursor: pointer;
 }
 
-#comparison-container.dashboard-comparison-grid { /* Nueva cuadrícula para iframes del comparador */
+#comparison-container.dashboard-comparison-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Móvil primero: una columna */
+  grid-template-columns: 1fr; /* ! CAMBIO: Siempre una columna para apilar verticalmente ! */
   gap: 30px; 
 }
 
-/* Dos columnas para pantallas más grandes */
+/* ELIMINADO o COMENTADO: Ya no queremos dos columnas en pantallas grandes para esta sección
 @media (min-width: 992px) { 
   #comparison-container.dashboard-comparison-grid {
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    grid-template-columns: 1fr 1fr; 
   }
 }
+*/
 
 .iframe-slot {
   border: 1px solid var(--ddm-gris-borde-sutil);
   border-radius: 8px;
   background-color: #f9f9f9; 
   position: relative; 
-  min-height: 300px; /* Altura mínima para el slot mientras no hay iframe, para que el placeholder se vea */
+  min-height: 300px; 
 }
 
 .iframe-slot .iframe-placeholder {
@@ -296,14 +294,13 @@ main {
   display: block; 
 }
 
-/* ! REGLA MODIFICADA PARA IFRAMES EN EL COMPARADOR ! */
 .iframe-slot iframe {
   width: 100%;
-  height: 650px; /* Alto fijo para consistencia. Ajusta este valor según necesidad. */
+  height: 650px; /* Alto fijo. Ajusta según necesidad. */
   border: none; 
   border-radius: 7px; 
   display: block; 
-  visibility: hidden; /* Se hace visible con JS cuando tiene src */
+  visibility: hidden; 
 }
 
 .iframe-slot iframe[src]:not([src="about:blank"]) {
@@ -346,16 +343,9 @@ footer {
   #search-container {
       margin-bottom: 30px;
   }
-  /* Ajustes para iframes en comparación en pantallas medianas */
-  #comparison-container.dashboard-comparison-grid {
-    /* Ya es 1fr por defecto, pero podemos ser explícitos */
-    grid-template-columns: 1fr; 
-  }
+  /* Ajustes para iframes en comparación en pantallas medianas (ya es 1 columna) */
   .iframe-slot iframe {
-      height: 550px; /* Un alto fijo diferente para tablets, o mantener el de 650px */
-      /* O si prefieres aspect-ratio para tablets: */
-      /* aspect-ratio: 4 / 3; */
-      /* height: auto; */
+      height: 550px; /* Puedes ajustar el alto para tablets si el de 650px es mucho */
   }
 }
 
@@ -398,10 +388,7 @@ footer {
         gap: 30px; 
     }
     .iframe-slot iframe {
-        height: 500px; /* Un alto fijo diferente para móviles, o mantener el de 650px */
-        /* O si prefieres aspect-ratio para móviles: */
-        /* aspect-ratio: 1 / 1;  */
-        /* height: auto; */
+        height: 500px; /* Puedes ajustar el alto para móviles */
     }
 }
 
