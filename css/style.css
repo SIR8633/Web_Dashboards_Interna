@@ -228,7 +228,10 @@ main {
   margin-bottom: 0;
 }
 
+
 /* === Estilos para Sección de Comparación de Dashboards Embebidos === */
+/* (Anteriormente `#section-embedded-reports .dashboard-grid` y sus items) */
+
 .comparison-controls {
   display: flex;
   flex-wrap: wrap; 
@@ -261,7 +264,7 @@ main {
   cursor: pointer;
 }
 
-#comparison-container.dashboard-comparison-grid { /* Esta es la nueva cuadrícula para los iframes */
+#comparison-container.dashboard-comparison-grid { /* Nueva cuadrícula para iframes del comparador */
   display: grid;
   grid-template-columns: 1fr; /* Móvil primero: una columna */
   gap: 30px; 
@@ -279,7 +282,7 @@ main {
   border-radius: 8px;
   background-color: #f9f9f9; 
   position: relative; 
-  min-height: 300px; /* Altura mínima para el slot mientras no hay iframe */
+  min-height: 300px; /* Altura mínima para el slot mientras no hay iframe, para que el placeholder se vea */
 }
 
 .iframe-slot .iframe-placeholder {
@@ -293,14 +296,14 @@ main {
   display: block; 
 }
 
+/* ! REGLA MODIFICADA PARA IFRAMES EN EL COMPARADOR ! */
 .iframe-slot iframe {
   width: 100%;
-  aspect-ratio: 16 / 9; 
-  height: auto;
+  height: 650px; /* Alto fijo para consistencia. Ajusta este valor según necesidad. */
   border: none; 
   border-radius: 7px; 
   display: block; 
-  visibility: hidden; 
+  visibility: hidden; /* Se hace visible con JS cuando tiene src */
 }
 
 .iframe-slot iframe[src]:not([src="about:blank"]) {
@@ -331,10 +334,10 @@ footer {
   .dashboard-section h2 {
       font-size: 1.5em;
   }
-  .dashboard-section:not(#section-embedded-reports) .dashboard-grid { /* Aplica solo a grids de tarjetas */
+  .dashboard-section:not(#section-embedded-reports) .dashboard-grid {
     gap: 20px;
   }
-  .dashboard-section:not(#section-embedded-reports) .dashboard-item { /* Aplica solo a tarjetas */
+  .dashboard-section:not(#section-embedded-reports) .dashboard-item {
       padding: 20px;
   }
   #section-filters {
@@ -345,10 +348,14 @@ footer {
   }
   /* Ajustes para iframes en comparación en pantallas medianas */
   #comparison-container.dashboard-comparison-grid {
-    grid-template-columns: 1fr; /* Forzar una columna si no lo hace ya la regla general */
+    /* Ya es 1fr por defecto, pero podemos ser explícitos */
+    grid-template-columns: 1fr; 
   }
   .iframe-slot iframe {
-      aspect-ratio: 4 / 3; /* Puede ser mejor una proporción más cuadrada en tablets */
+      height: 550px; /* Un alto fijo diferente para tablets, o mantener el de 650px */
+      /* O si prefieres aspect-ratio para tablets: */
+      /* aspect-ratio: 4 / 3; */
+      /* height: auto; */
   }
 }
 
@@ -380,10 +387,10 @@ footer {
         padding: 10px 12px;
         font-size: 0.95em;
     }
-    .dashboard-section:not(#section-embedded-reports) .dashboard-item h3 { /* Aplica solo a tarjetas */
+    .dashboard-section:not(#section-embedded-reports) .dashboard-item h3 {
         font-size: 1.1em;
     }
-    .dashboard-section:not(#section-embedded-reports) .dashboard-item p { /* Aplica solo a tarjetas */
+    .dashboard-section:not(#section-embedded-reports) .dashboard-item p {
         font-size: 0.85em;
     }
     /* Ajustes para iframes en comparación en móviles */
@@ -391,7 +398,10 @@ footer {
         gap: 30px; 
     }
     .iframe-slot iframe {
-        aspect-ratio: 1 / 1; /* O incluso más alto que ancho para scroll vertical */
+        height: 500px; /* Un alto fijo diferente para móviles, o mantener el de 650px */
+        /* O si prefieres aspect-ratio para móviles: */
+        /* aspect-ratio: 1 / 1;  */
+        /* height: auto; */
     }
 }
 
