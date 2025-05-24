@@ -43,9 +43,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             section.style.display = 'none';
                         }
                     });
-                    // Opcional: Limpiar búsqueda al cambiar filtro de sección
-                    // if (searchInput) searchInput.value = '';
-                    // applySearchFilter(); // Re-aplicar filtro de búsqueda (vacío)
+                    // Disparar un re-filtro de búsqueda después de cambiar filtro de sección
+                    if (typeof applySearchFilter === 'function') { // Asegurar que la función exista
+                        setTimeout(applySearchFilter, 0); // Pequeño delay para que el DOM actualice display
+                    }
                 }
             });
         }
@@ -57,24 +58,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // === Funcionalidad Búsqueda en Vivo ===
     // ====================================
     const searchInput = document.getElementById('search-input');
-    const dashboardItems = document.querySelectorAll('.dashboard-item');
-    if (searchInput && dashboardItems.length > 0) {
+    // Seleccionamos todos los items que pueden ser filtrados (los de enlaces y los de iframes)
+    const allDashboardItems = document.querySelectorAll('.dashboard-section .dashboard-item'); 
+    
+    // Declarar applySearchFilter en un scope accesible para que los filtros de sección puedan llamarla
+    let applySearchFilter = () => {}; 
 
-        // Función para aplicar el filtro de búsqueda (para poder llamarla también al cambiar sección)
-        const applySearchFilter = () => {
+    if (searchInput && allDashboardItems.length > 0) {
+        applySearchFilter = () => { // Asignar la función
             const searchTerm = searchInput.value.toLowerCase().trim();
-            dashboardItems.forEach(item => {
+            allDashboardItems.forEach(item => {
                 const titleElement = item.querySelector('h3');
                 const descriptionElement = item.querySelector('p');
                 const title = titleElement ? titleElement.textContent.toLowerCase() : '';
                 const description = descriptionElement ? descriptionElement.textContent.toLowerCase() : '';
                 const isMatch = title.includes(searchTerm) || description.includes(searchTerm);
 
-                // IMPORTANTE: Solo ocultar/mostrar si la sección padre está visible
                 const parentSection = item.closest('.dashboard-section');
-                const isSectionVisible = !parentSection || parentSection.style.display !== 'none';
+                const isSectionFilteredOut = parentSection && parentSection.style.display === 'none';
 
-                if (isSectionVisible && (searchTerm === '' || isMatch)) {
+                if (isSectionFilteredOut) {
+                    // Si la sección padre está oculta por el filtro de sección, el item también debe estarlo
+                    item.style.display = 'none'; 
+                } else if (searchTerm === '' || isMatch) {
                     item.style.display = ''; // Usa el display por defecto (flex)
                 } else {
                     item.style.display = 'none';
@@ -82,36 +88,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         }
 
-        // Escuchar el evento 'input' para búsqueda en tiempo real
         searchInput.addEventListener('input', applySearchFilter);
-
-        // Si se limpia la búsqueda con la 'x', también se dispara 'input',
-        // pero aseguramos por si acaso con 'search' event
-         searchInput.addEventListener('search', () => {
-            // El evento 'input' ya maneja esto, pero puede ser un fallback
+        searchInput.addEventListener('search', () => { // Para el botón 'x' del input type search
             if(searchInput.value === '') {
                  applySearchFilter();
             }
          });
 
-
-        // --- Modificación para Interacción con Filtros de Sección ---
-        // Re-aplicar el filtro de búsqueda CADA VEZ que se cambia un filtro de sección
-        if (filterContainer) {
-             filterContainer.addEventListener('click', (e) => {
-                 if (e.target.classList.contains('filter-btn')) {
-                     // Esperar un instante muy pequeño para que el filtro de sección termine de aplicarse
-                     // antes de re-aplicar el filtro de búsqueda a los elementos ahora visibles.
-                     setTimeout(applySearchFilter, 0);
-                 }
-             });
-         }
-         // Aplicar filtro inicial por si la página carga con texto en la búsqueda (poco probable)
-         applySearchFilter();
-
-    } // Fin if (searchInput y dashboardItems existen)
+        // Aplicar filtro inicial por si la página carga con texto en la búsqueda
+        applySearchFilter(); 
+    }
     // === Fin Funcionalidad Búsqueda en Vivo ===
     // ========================================
-
 
 }); // Fin del DOMContentLoaded
