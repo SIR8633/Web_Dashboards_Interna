@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // === Fin Funcionalidad Botón Volver Arriba ===
     // =============================================
 
+    // Declarar applySearchFilter en un scope más amplio para ser accesible por el filtro de sección
+    let applySearchFilter = () => {}; 
 
     // === Funcionalidad Filtro por Secciones ===
     // ========================================
@@ -44,8 +46,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         }
                     });
                     // Disparar un re-filtro de búsqueda después de cambiar filtro de sección
-                    if (typeof applySearchFilter === 'function') { // Asegurar que la función exista
-                        setTimeout(applySearchFilter, 0); 
+                    if (typeof applySearchFilter === 'function') { 
+                        setTimeout(applySearchFilter, 50); 
                     }
                 }
             });
@@ -54,8 +56,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // === Fin Funcionalidad Filtro por Secciones ===
     // ============================================
 
-    // Declarar applySearchFilter en un scope más amplio para ser accesible
-    let applySearchFilter = () => {}; 
 
     // === Funcionalidad Búsqueda en Vivo ===
     // ====================================
@@ -68,6 +68,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
             allDashboardItemsForSearch.forEach(item => {
                 const titleElement = item.querySelector('h3');
                 const descriptionElement = item.querySelector('p');
+                const isIframeSlot = item.classList.contains('iframe-slot'); // Comprobar si es un slot de iframe
+
+                // Si es un slot de iframe, no intentamos leer título/descripción para filtrar por texto
+                if (isIframeSlot) {
+                     const parentSection = item.closest('.dashboard-section');
+                     const isSectionFilteredOut = parentSection && parentSection.style.display === 'none';
+                     if (isSectionFilteredOut) {
+                        item.style.display = 'none';
+                     } else {
+                        item.style.display = ''; // Los slots de iframe se muestran/ocultan solo por filtro de sección
+                     }
+                     return; // Saltar el resto de la lógica para este item
+                }
+
+                // Para items normales (no slots de iframe del comparador)
                 const title = titleElement ? titleElement.textContent.toLowerCase() : '';
                 const description = descriptionElement ? descriptionElement.textContent.toLowerCase() : '';
                 const isMatch = title.includes(searchTerm) || description.includes(searchTerm);
@@ -75,16 +90,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 const parentSection = item.closest('.dashboard-section');
                 const isSectionFilteredOut = parentSection && parentSection.style.display === 'none';
 
-                // Los items de la sección de comparación se manejan diferente (siempre visibles si la sección está activa)
-                const isComparisonItem = parentSection && parentSection.id === 'section-embedded-reports';
-
-                if (isComparisonItem) { // Los iframes de comparación no se filtran por búsqueda
-                    if (!isSectionFilteredOut) { // Solo se muestran si su sección está activa
-                         item.style.display = ''; 
-                    } else {
-                         item.style.display = 'none';
-                    }
-                } else if (isSectionFilteredOut) {
+                if (isSectionFilteredOut) {
                     item.style.display = 'none'; 
                 } else if (searchTerm === '' || isMatch) {
                     item.style.display = ''; 
@@ -101,14 +107,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
          });
         
-        // Re-aplicar el filtro de búsqueda CADA VEZ que se cambia un filtro de sección
-        if (filterContainer) {
-             filterContainer.addEventListener('click', (e) => {
-                 if (e.target.classList.contains('filter-btn')) {
-                     setTimeout(applySearchFilter, 50); // Un delay un poco mayor puede ayudar
-                 }
-             });
-         }
          applySearchFilter(); // Aplicar filtro inicial
     }
     // === Fin Funcionalidad Búsqueda en Vivo ===
@@ -162,7 +160,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const option = document.createElement('option');
             option.value = dashboard.url;
             option.textContent = dashboard.name;
-            selector1.appendChild(option.cloneNode(true)); // Clonar para el segundo selector
+            selector1.appendChild(option.cloneNode(true)); 
             selector2.appendChild(option);
         });
 
