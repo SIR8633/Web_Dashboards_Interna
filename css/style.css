@@ -29,7 +29,6 @@ body {
   line-height: 1.7; /* Un poco más de espacio entre líneas */
   color: var(--ddm-gris-oscuro-texto);
   background-color: var(--ddm-gris-claro-fondo);
-  /* Eliminamos padding del body, lo manejaremos con el container */
 }
 
 /* === Contenedor Principal === */
@@ -46,42 +45,36 @@ header {
   color: var(--ddm-blanco);
   padding: 20px 0; /* Espacio vertical */
   margin-bottom: 40px; /* Más espacio debajo del header */
-  /* Quitamos border-radius para esquinas rectas como DDM */
 }
 
 /* Contenedor del Header con Flexbox (PARA LOGO) */
 .header-container {
-  display: flex; /* Activa Flexbox */
-  align-items: center; /* Alinea verticalmente el logo y el texto */
-  gap: 20px; /* Espacio entre el logo y el bloque de texto */
-  justify-content: flex-start; /* Alinea logo y texto a la izquierda por defecto */
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+  justify-content: flex-start; 
 }
 
 /* Estilo para el Logo */
 #logo-header {
-  max-height: 45px; /* Ajusta esta altura según el tamaño deseado para tu logo */
-  width: auto; /* Mantiene la proporción */
+  max-height: 45px; 
+  width: auto; 
 }
 
 /* Estilo para el bloque de texto del header */
 .header-text {
-  text-align: left; /* Alinea el texto a la izquierda */
+  text-align: left; 
 }
-
-/* REGLA CONFLICTIVA ELIMINADA: */
-/* header .container { text-align: center; } */
-
 
 header h1 {
   margin-bottom: 8px;
-  font-weight: 700; /* Fuente más gruesa para el título principal */
+  font-weight: 700; 
 }
 
 header p {
     font-size: 0.95em;
-    opacity: 0.9; /* Hacer la descripción ligeramente menos prominente */
+    opacity: 0.9; 
 }
-
 
 /* === Contenido Principal (Main) === */
 main {
@@ -90,62 +83,60 @@ main {
 
 /* === Estilos Filtros de Sección === */
 #section-filters {
-  text-align: center; /* Centra los botones */
-  margin-bottom: 25px; /* Espacio debajo de los botones de filtro */
+  text-align: center; 
+  margin-bottom: 25px; 
 }
 
 .filter-btn {
-  background-color: #f0f0f0; /* Fondo gris claro */
+  background-color: #f0f0f0; 
   border: 1px solid #ddd;
-  color: var(--ddm-gris-medio-texto); /* Texto gris */
+  color: var(--ddm-gris-medio-texto); 
   padding: 10px 20px;
-  margin: 5px; /* Espacio alrededor de cada botón */
+  margin: 5px; 
   cursor: pointer;
-  border-radius: 20px; /* Bordes redondeados */
+  border-radius: 20px; 
   font-family: var(--fuente-principal);
   font-size: 0.9em;
-  font-weight: 400; /* Asegurar peso normal por defecto */
+  font-weight: 400; 
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .filter-btn:hover {
-  background-color: #e0e0e0; /* Gris un poco más oscuro al pasar el ratón */
+  background-color: #e0e0e0; 
   border-color: #ccc;
 }
 
-/* Estilo para el botón activo */
 .filter-btn.active {
-  background-color: var(--ddm-naranja-primario); /* Fondo naranja */
-  color: var(--ddm-blanco); /* Texto blanco */
-  border-color: var(--ddm-naranja-primario); /* Borde naranja */
-  font-weight: 700; /* Texto en negrita */
+  background-color: var(--ddm-naranja-primario); 
+  color: var(--ddm-blanco); 
+  border-color: var(--ddm-naranja-primario); 
+  font-weight: 700; 
 }
 /* === Fin Estilos Filtros de Sección === */
 
 
 /* === Estilos Campo de Búsqueda === */
 #search-container {
-  margin-top: 20px; /* Espacio encima del campo de búsqueda */
-  margin-bottom: 40px; /* Espacio debajo del campo de búsqueda */
+  margin-top: 20px; 
+  margin-bottom: 40px; 
 }
 
 #search-input {
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  padding: 12px 15px; /* Padding interno cómodo */
-  font-size: 1em; /* Tamaño de fuente similar al texto base */
+  width: 100%; 
+  padding: 12px 15px; 
+  font-size: 1em; 
   font-family: var(--fuente-principal);
-  border: 1px solid var(--ddm-gris-borde-sutil); /* Borde sutil */
-  border-radius: 25px; /* Bordes redondeados, similar a los botones de filtro */
-  outline: none; /* Quitar el contorno por defecto */
+  border: 1px solid var(--ddm-gris-borde-sutil); 
+  border-radius: 25px; 
+  outline: none; 
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #search-input:focus {
-  border-color: var(--ddm-naranja-primario); /* Borde naranja al enfocar */
-  box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.2); /* Sombra suave naranja al enfocar */
+  border-color: var(--ddm-naranja-primario); 
+  box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.2); 
 }
 
-/* Estilos específicos para el botón de limpiar (x) que aparece en type="search" */
 #search-input::-webkit-search-cancel-button {
   cursor: pointer;
 }
@@ -157,53 +148,50 @@ main {
 
 /* === Estilos de Sección === */
 .dashboard-section {
-  margin-bottom: 50px; /* Espacio debajo de cada sección */
+  margin-bottom: 50px; 
 }
 
-/* Título de Sección (h2) */
 .dashboard-section h2 {
-  font-size: 1.8em; /* Tamaño más grande para títulos de sección */
-  color: var(--ddm-gris-oscuro-texto); /* Color oscuro para el título */
-  margin-bottom: 30px; /* Más espacio debajo del título */
-  text-align: left; /* Alineación izquierda, más estándar */
+  font-size: 1.8em; 
+  color: var(--ddm-gris-oscuro-texto); 
+  margin-bottom: 30px; 
+  text-align: left; 
   font-weight: 700;
-  border-bottom: 2px solid var(--ddm-naranja-primario); /* Línea naranja debajo del título */
-  padding-bottom: 10px; /* Espacio entre texto y línea */
-  display: inline-block; /* Para que el borde no ocupe todo el ancho */
+  border-bottom: 2px solid var(--ddm-naranja-primario); 
+  padding-bottom: 10px; 
+  display: inline-block; 
 }
 
-/* Línea divisoria entre secciones (más sutil) */
 .dashboard-section:not(:first-of-type) {
   border-top: 1px solid var(--ddm-gris-borde-sutil);
-  padding-top: 50px; /* Espacio encima de la línea */
+  padding-top: 50px; 
 }
 
-/* === Cuadrícula de Dashboards === */
+/* === Cuadrícula de Dashboards (General) === */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px; /* Un poco más de espacio entre tarjetas */
+  gap: 30px; 
 }
 
-/* === Tarjeta de Dashboard === */
+/* === Tarjeta de Dashboard (General) === */
 .dashboard-item {
   background-color: var(--ddm-blanco);
-  border: 1px solid var(--ddm-gris-borde-sutil); /* Borde muy sutil */
-  border-radius: 8px; /* Esquinas un poco más redondeadas */
-  padding: 25px; /* Más padding interno */
-  text-align: left; /* Alineación izquierda para el contenido */
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease; /* Añadida opacidad a transición */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Sombra más sutil estilo DDM */
-  display: flex; /* Usar flexbox para controlar el contenido interno */
-  flex-direction: column; /* Alinear contenido verticalmente */
+  border: 1px solid var(--ddm-gris-borde-sutil); 
+  border-radius: 8px; 
+  padding: 25px; 
+  text-align: left; 
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); 
+  display: flex; 
+  flex-direction: column; 
 }
 
 .dashboard-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); /* Sombra ligeramente más pronunciada al pasar el ratón */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); 
 }
 
-/* Enlace principal de la tarjeta */
 .dashboard-item a {
   text-decoration: none;
   color: inherit;
@@ -211,41 +199,91 @@ main {
   margin-bottom: 15px;
 }
 
-/* Imagen de la tarjeta */
 .dashboard-item img {
   max-width: 100%;
   height: auto;
-  border-radius: 6px; /* Redondeo para la imagen */
+  border-radius: 6px; 
   margin-bottom: 15px;
-  border: none; /* Quitamos el borde de la imagen */
-  display: block; /* Evitar espacio extra debajo de la imagen */
+  border: none; 
+  display: block; 
 }
 
-/* Título de la tarjeta (h3) */
 .dashboard-item h3 {
   font-size: 1.15em;
   margin-bottom: 10px;
-  color: var(--ddm-naranja-primario); /* Título de tarjeta en naranja */
+  color: var(--ddm-naranja-primario); 
   font-weight: 700;
-  transition: color 0.2s ease; /* Transición de color al pasar el ratón por el enlace */
+  transition: color 0.2s ease; 
 }
 
 .dashboard-item a:hover h3 {
-    color: var(--ddm-gris-oscuro-texto); /* Cambiar color del título al pasar el ratón por el enlace */
+    color: var(--ddm-gris-oscuro-texto); 
 }
 
-/* Descripción de la tarjeta (p) */
 .dashboard-item p {
   font-size: 0.9em;
   color: var(--ddm-gris-medio-texto);
-  flex-grow: 1; /* Empuja el footer (si lo hubiera) hacia abajo */
-  margin-bottom: 0; /* Quitar margen inferior si es el último elemento */
+  flex-grow: 1; 
+  margin-bottom: 0; 
 }
+
+/* === Estilos para iframes de Power BI Embebidos (GENERAL) === */
+/* Esta regla se aplica a CUALQUIER iframe dentro de un .dashboard-item */
+/* Si solo los quieres grandes en la sección específica, usa la regla de abajo */
+/*
+.dashboard-item iframe {
+  display: block; 
+  width: 100%; 
+  min-height: 500px; 
+  border: none; 
+  background-color: #f8f9fa; 
+}
+*/
+
+/* Ajuste opcional: Si mantienes el h3 encima del iframe */
+.dashboard-item h3 + iframe {
+    margin-top: 15px; 
+}
+
+
+/* === Ajustes Específicos para Sección de Reportes Embebidos === */
+/* Hacer que la cuadrícula en esta sección tenga UNA sola columna */
+#section-embedded-reports .dashboard-grid {
+  grid-template-columns: 1fr; /* Fuerza una sola columna */
+  gap: 50px; /* Aumentar el espacio vertical entre reportes embebidos */
+}
+
+/* Ajustar el item contenedor del iframe en esta sección */
+#section-embedded-reports .dashboard-item {
+   padding: 15px; /* Menos padding para dar más espacio al iframe */
+   box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra más sutil aún o quitarla */
+   /* border: none; */ /* Descomenta si quieres quitar el borde de la tarjeta */
+   background-color: var(--ddm-blanco);
+}
+
+/* Ajustar el iframe DENTRO de esta sección específica */
+#section-embedded-reports .dashboard-item iframe {
+  width: 100%; 
+  aspect-ratio: 16 / 9; /* Proporción estándar widescreen. */
+  height: auto; /* La altura se calculará automáticamente */
+  min-height: initial; /* Anular cualquier min-height anterior */
+  border: 1px solid var(--ddm-gris-borde-sutil); /* Borde sutil al iframe */
+  border-radius: 6px; 
+  display: block; /* Necesario para que el aspect-ratio funcione bien */
+}
+
+/* Ajustar título si se mantiene sobre el iframe grande */
+#section-embedded-reports .dashboard-item h3 {
+    text-align: center; 
+    font-size: 1.25em; /* Un poco más grande */
+}
+/* === Fin Ajustes Sección Embebidos === */
+
 
 /* === Pie de Página (Footer) === */
 footer {
-  margin-top: 60px; /* Más espacio antes del footer */
-  padding: 30px 0; /* Más espacio vertical en el footer */
+  margin-top: 60px; 
+  padding: 30px 0; 
   border-top: 1px solid var(--ddm-gris-borde-sutil);
   text-align: center;
   font-size: 0.85em;
@@ -261,10 +299,10 @@ footer {
       font-size: 1.5em;
   }
   .dashboard-grid {
-    gap: 20px; /* Menos espacio entre tarjetas en pantallas medianas/pequeñas */
+    gap: 20px; 
   }
   .dashboard-item {
-      padding: 20px; /* Menos padding en tarjetas */
+      padding: 20px; 
   }
   #section-filters {
       margin-bottom: 30px;
@@ -272,19 +310,22 @@ footer {
   #search-container {
       margin-bottom: 30px;
   }
+  /* Ajustes para iframes embebidos en pantallas medianas */
+  #section-embedded-reports .dashboard-item iframe {
+      aspect-ratio: 4 / 3; /* Puede ser mejor una proporción más cuadrada en tablets */
+  }
 }
 
 @media (max-width: 480px) {
     body {
         /* Podrías reducir ligeramente el line-height si es necesario */
     }
-    /* Ajustar flexbox del header para apilar en móvil */
     .header-container {
-        flex-direction: column; /* Apila logo y texto */
+        flex-direction: column; 
         gap: 10px;
     }
     .header-text {
-        text-align: center; /* Centra el texto cuando está apilado */
+        text-align: center; 
     }
 
     header h1 {
@@ -292,14 +333,16 @@ footer {
     }
     .dashboard-section h2 {
         font-size: 1.3em;
-        display: block; /* Permitir que el título ocupe todo el ancho y la línea también */
-        text-align: center; /* Centrar títulos en móvil si se prefiere */
-        border-bottom: none; /* Quitar borde inferior en móvil si se prefiere */
+        display: block; 
+        text-align: center; 
+        border-bottom: none; 
         padding-bottom: 0;
     }
     .filter-btn {
         padding: 8px 15px;
         font-size: 0.85em;
+        display: inline-block; /* Asegurar que no se rompan raro */
+        margin: 3px;
     }
     #search-input {
         padding: 10px 12px;
@@ -311,42 +354,47 @@ footer {
     .dashboard-item p {
         font-size: 0.85em;
     }
-    /* Forzar una columna en móvil si se desea */
-    /* .dashboard-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    } */
+    /* Ajustes para iframes embebidos en móviles */
+    #section-embedded-reports .dashboard-grid {
+        gap: 30px; /* Más espacio vertical si es una sola columna */
+    }
+    #section-embedded-reports .dashboard-item iframe {
+        aspect-ratio: 1 / 1; /* O incluso más alto que ancho para scroll vertical */
+        /* O podrías volver a un min-height si aspect-ratio no funciona bien en móvil */
+        /* min-height: 400px; */
+        /* height: auto; */
+        /* aspect-ratio: initial; */
+    }
 }
 
 /* === Estilos Botón Volver Arriba === */
 #scrollTopBtn {
-  display: none; /* Oculto por defecto */
-  position: fixed; /* Posición fija relativa a la ventana */
-  bottom: 30px; /* Distancia desde abajo */
-  right: 30px; /* Distancia desde la derecha */
-  z-index: 99; /* Asegurar que esté sobre otros elementos */
-  border: none; /* Sin borde */
-  outline: none; /* Sin contorno al hacer clic */
-  background-color: var(--ddm-naranja-primario); /* Color de fondo naranja */
-  color: var(--ddm-blanco); /* Color del icono/texto blanco */
-  cursor: pointer; /* Cursor de mano */
-  padding: 10px 15px; /* Padding interno */
-  border-radius: 50%; /* Hacerlo circular */
-  font-size: 18px; /* Tamaño del icono/texto */
-  opacity: 0; /* Inicialmente invisible (para transición suave) */
-  visibility: hidden; /* Oculto para accesibilidad */
-  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease; /* Transiciones suaves */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+  display: none; 
+  position: fixed; 
+  bottom: 30px; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: var(--ddm-naranja-primario); 
+  color: var(--ddm-blanco); 
+  cursor: pointer; 
+  padding: 10px 15px; 
+  border-radius: 50%; 
+  font-size: 18px; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 #scrollTopBtn.visible {
-  display: block; /* Asegurar que ocupa espacio cuando es visible */
-  opacity: 1; /* Totalmente visible */
-  visibility: visible; /* Visible para accesibilidad */
+  display: block; 
+  opacity: 1; 
+  visibility: visible; 
 }
 
 #scrollTopBtn:hover {
-  background-color: #e06000; /* Naranja un poco más oscuro al pasar el ratón (ajusta si es necesario) */
+  background-color: #e06000; 
 }
-
 /* === Fin Estilos Botón Volver Arriba === */
