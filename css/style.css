@@ -424,21 +424,26 @@ footer {
 }
 /* === Fin Estilos Botón Volver Arriba === */
 
-/* === Estilos para Sección de Beneficios DDM === */
+/* === ESTILOS ACTUALIZADOS para Sección de Beneficios DDM === */
 #section-beneficios-ddm h2 {
-    /* El estilo general de .dashboard-section h2 ya se aplica,
-       pero podemos ajustar si es necesario, por ejemplo, centrarlo si la sección es más informativa */
-    /* text-align: center; */
-    /* display: block; */ /* Si se centra, para que el borde ocupe el ancho */
+    text-align: center; /* Centrar el título principal de la sección */
+    display: block; /* Para que el centrado y el borde inferior funcionen bien */
+    border-bottom: 2px solid var(--ddm-naranja-primario);
+    margin-bottom: 40px; /* Más espacio debajo del título principal */
+    padding-bottom: 15px;
+}
+#section-beneficios-ddm h2 .fas { /* Icono en el título principal */
+    margin-right: 10px;
+    color: var(--ddm-naranja-primario);
 }
 
 .beneficios-intro {
     text-align: center;
     font-size: 1.1em;
     line-height: 1.8;
-    margin-bottom: 40px;
+    margin-bottom: 50px; /* Aumentar espacio */
     color: var(--ddm-gris-medio-texto);
-    max-width: 800px; /* Limitar ancho para mejor lectura */
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -446,83 +451,113 @@ footer {
 .beneficios-grid {
     display: grid;
     grid-template-columns: 1fr; /* Una columna por defecto */
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 30px; /* Espacio entre categorías */
+    margin-bottom: 50px;
 }
 
-/* Dos columnas para pantallas más grandes si se desea, o mantener una */
-@media (min-width: 768px) {
+/* Para pantallas más grandes, podemos poner las categorías lado a lado si se desea */
+@media (min-width: 992px) {
     .beneficios-grid {
-        /* Descomentar si quieres dos columnas para las categorías de beneficios */
-        /* grid-template-columns: 1fr 1fr; */
+        grid-template-columns: 1fr 1fr; /* Dos columnas para las categorías de beneficios */
+        gap: 40px;
     }
 }
 
 .beneficio-categoria {
-    background-color: #fdfdfd; /* Un fondo muy sutil para la categoría */
-    padding: 25px;
-    border-radius: 8px;
+    background-color: var(--ddm-blanco);
+    padding: 30px; /* Más padding */
+    border-radius: 12px; /* Bordes más redondeados */
     border: 1px solid var(--ddm-gris-borde-sutil);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07); /* Sombra un poco más pronunciada */
 }
 
 .beneficio-categoria h3 {
     color: var(--ddm-naranja-primario);
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--ddm-gris-borde-sutil);
+    font-size: 1.6em; /* Título de categoría más grande */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Separador más sutil */
+    display: flex; /* Para alinear icono y texto */
+    align-items: center;
+}
+.beneficio-categoria h3 .fas { /* Icono en el título de categoría */
+    margin-right: 12px;
+    font-size: 0.9em; /* Ajustar tamaño del icono relativo al texto */
 }
 
 .beneficio-item {
+    display: flex; /* Para alinear icono y texto del item */
+    align-items: flex-start; /* Alinear al inicio si el texto es multilínea */
     margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fdfdfd; /* Fondo ligeramente diferente para cada item */
+    border-radius: 8px;
+    border-left: 4px solid var(--ddm-naranja-primario); /* Acento de color */
 }
 .beneficio-item:last-child {
     margin-bottom: 0;
 }
 
-.beneficio-item h4 {
-    font-size: 1.15em;
+.beneficio-icon {
+    font-size: 1.8em; /* Tamaño del icono del item */
+    color: var(--ddm-naranja-primario);
+    margin-right: 20px;
+    min-width: 40px; /* Ancho mínimo para el contenedor del icono */
+    text-align: center;
+    padding-top: 5px; /* Pequeño ajuste vertical */
+}
+
+.beneficio-texto h4 {
+    font-size: 1.2em; /* Título del item un poco más grande */
     color: var(--ddm-gris-oscuro-texto);
     margin-bottom: 8px;
     font-weight: 700;
 }
 
-.beneficio-item p {
+.beneficio-texto p,
+.beneficio-texto ul.sub-beneficios {
     font-size: 0.95em;
     line-height: 1.7;
     color: var(--ddm-gris-medio-texto);
     margin-bottom: 10px;
 }
 
-.beneficio-item ul {
-    list-style-position: outside;
-    padding-left: 20px; /* Ajusta para alinear con el texto */
-    font-size: 0.95em;
-    line-height: 1.7;
-    color: var(--ddm-gris-medio-texto);
+.beneficio-texto ul.sub-beneficios {
+    list-style: none; /* Quitar viñetas por defecto */
+    padding-left: 0;
 }
 
-.beneficio-item ul li {
+.beneficio-texto ul.sub-beneficios li {
     margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+.beneficio-texto ul.sub-beneficios li .fas { /* Iconos en sub-beneficios */
+    margin-right: 10px;
+    color: var(--ddm-naranja-primario);
+    font-size: 0.9em;
+    margin-top: 4px; /* Alineación vertical con el texto */
 }
 
-.beneficio-item ul li strong {
+.beneficio-texto ul.sub-beneficios li strong {
     color: var(--ddm-gris-oscuro-texto);
 }
 
 .beneficios-conclusion {
     text-align: center;
-    padding: 25px;
-    background-color: var(--ddm-naranja-primario);
+    padding: 30px 25px; /* Más padding */
+    background-color: var(--ddm-gris-oscuro-texto); /* Un fondo oscuro para contraste */
     color: var(--ddm-blanco);
     border-radius: 8px;
-    margin-top: 30px;
+    margin-top: 50px; /* Más espacio antes de la conclusión */
 }
 
 .beneficios-conclusion h4 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
+    font-size: 1.4em; /* Título de conclusión más grande */
+    margin-bottom: 15px;
+    color: var(--ddm-naranja-primario); /* Título de conclusión en naranja */
 }
-
+.beneficios-conclusion h4 .fas {
+    margin-right: 8px;
+}
 /* === Fin Estilos Sección Beneficios DDM === */
