@@ -423,3 +423,106 @@ footer {
   background-color: #e06000;
 }
 /* === Fin Estilos Botón Volver Arriba === */
+
+/* === Estilos para Sección de Beneficios DDM === */
+#section-beneficios-ddm h2 {
+    /* El estilo general de .dashboard-section h2 ya se aplica,
+       pero podemos ajustar si es necesario, por ejemplo, centrarlo si la sección es más informativa */
+    /* text-align: center; */
+    /* display: block; */ /* Si se centra, para que el borde ocupe el ancho */
+}
+
+.beneficios-intro {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: var(--ddm-gris-medio-texto);
+    max-width: 800px; /* Limitar ancho para mejor lectura */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Dos columnas para pantallas más grandes si se desea, o mantener una */
+@media (min-width: 768px) {
+    .beneficios-grid {
+        /* Descomentar si quieres dos columnas para las categorías de beneficios */
+        /* grid-template-columns: 1fr 1fr; */
+    }
+}
+
+.beneficio-categoria {
+    background-color: #fdfdfd; /* Un fondo muy sutil para la categoría */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--ddm-gris-borde-sutil);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.beneficio-categoria h3 {
+    color: var(--ddm-naranja-primario);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--ddm-gris-borde-sutil);
+}
+
+.beneficio-item {
+    margin-bottom: 25px;
+}
+.beneficio-item:last-child {
+    margin-bottom: 0;
+}
+
+.beneficio-item h4 {
+    font-size: 1.15em;
+    color: var(--ddm-gris-oscuro-texto);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.beneficio-item p {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: var(--ddm-gris-medio-texto);
+    margin-bottom: 10px;
+}
+
+.beneficio-item ul {
+    list-style-position: outside;
+    padding-left: 20px; /* Ajusta para alinear con el texto */
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: var(--ddm-gris-medio-texto);
+}
+
+.beneficio-item ul li {
+    margin-bottom: 8px;
+}
+
+.beneficio-item ul li strong {
+    color: var(--ddm-gris-oscuro-texto);
+}
+
+.beneficios-conclusion {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--ddm-naranja-primario);
+    color: var(--ddm-blanco);
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.beneficios-conclusion h4 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+/* === Fin Estilos Sección Beneficios DDM === */
