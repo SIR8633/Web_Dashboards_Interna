@@ -1,16 +1,21 @@
 /* === Variables CSS alineadas con el Brandbook DDM 2025 === */
 :root {
     /* Paleta Principal */
-    --ddm-naranja: #FF8200; [cite_start]/* [cite: 100] */
-    --ddm-violeta-oscuro: #1E1A34; [cite_start]/* [cite: 100] */
-    --ddm-blanco: #FFFFFF; [cite_start]/* [cite: 100] */
-    --ddm-gris-oscuro: #586770; [cite_start]/* [cite: 100] */
-    --ddm-gris-medio: #B7C9D3; [cite_start]/* [cite: 100] */
-    --ddm-gris-claro: #DBE2E9; [cite_start]/* [cite: 100] */
+    --ddm-naranja: #FF8200;
+    --ddm-violeta-oscuro: #1E1A34;
+    --ddm-blanco: #FFFFFF;
+    --ddm-gris-oscuro: #586770;
+    --ddm-gris-medio: #B7C9D3;
+    --ddm-gris-claro: #DBE2E9;
+
+    /* Paleta Secundaria (acentos) */
+    --ddm-coral: #F2827F;
+    --ddm-lavanda: #B896D4;
+    --ddm-aqua: #A0D1CA;
 
     /* Fuentes del Brandbook */
-    --fuente-principal: 'Satoshi', sans-serif; [cite_start]/* [cite: 79] */
-    --fuente-secundaria: 'DM Sans', sans-serif; [cite_start]/* [cite: 81] */
+    --fuente-principal: 'Satoshi', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuente-secundaria: 'DM Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
     --max-width-container: 1200px;
 }
@@ -31,8 +36,6 @@ body {
     line-height: 1.6;
     color: var(--ddm-gris-oscuro);
     background-color: var(--ddm-blanco);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
@@ -40,7 +43,6 @@ h1, h2, h3, h4 {
     font-weight: 700;
 }
 
-/* === Contenedor Principal === */
 .container {
     max-width: var(--max-width-container);
     margin: 0 auto;
@@ -60,6 +62,7 @@ header {
     display: flex;
     align-items: center;
     gap: 25px;
+    justify-content: flex-start;
 }
 
 #logo-header {
@@ -68,19 +71,21 @@ header {
 }
 
 .header-text h1 {
+    font-family: var(--fuente-principal);
     font-weight: 900;
     font-size: 2.5em;
     margin-bottom: 5px;
-    color: var(--ddm-naranja); [cite_start]/* [cite: 100] */
+    color: var(--ddm-naranja); 
 }
 
 .header-text p {
+    font-family: var(--fuente-secundaria);
     font-size: 1.1em;
-    color: var(--ddm-gris-medio); [cite_start]/* [cite: 100] */
     opacity: 0.9;
+    color: var(--ddm-gris-medio);
 }
 
-/* === Filtros y Búsqueda === */
+/* === Filtros y Búsqueda con estilo DDM === */
 #section-filters {
     text-align: center;
     margin-bottom: 30px;
@@ -131,15 +136,21 @@ header {
     box-shadow: 0 0 0 4px rgba(255, 130, 0, 0.15);
 }
 
-/* === Estilos de Sección y Tarjetas de Dashboard === */
+/* === Estilos de Sección (Generales) === */
 .dashboard-section {
     margin-bottom: 60px;
+    padding-top: 20px;
+}
+
+.dashboard-section:first-of-type {
+    padding-top: 0;
 }
 
 .dashboard-section h2 {
     font-size: 2em;
     color: var(--ddm-violeta-oscuro);
     margin-bottom: 35px;
+    text-align: left;
     font-weight: 900;
     padding-bottom: 12px;
     position: relative;
@@ -157,6 +168,7 @@ header {
     border-radius: 2px;
 }
 
+/* === Cuadrícula y Tarjetas de Dashboard (Estilo DDM) === */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -167,6 +179,7 @@ header {
     background-color: var(--ddm-blanco);
     border: 1px solid var(--ddm-gris-claro);
     border-radius: 12px;
+    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 12px rgba(88, 103, 112, 0.08);
     overflow: hidden;
@@ -196,6 +209,8 @@ header {
 
 .dashboard-item .card-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
 
@@ -213,14 +228,86 @@ header {
 .dashboard-item p {
     font-size: 0.95em;
     color: var(--ddm-gris-oscuro);
+    flex-grow: 1;
     margin-bottom: 0;
 }
 
-/* === Comparador y Footer === */
-.comparison-controls, .control-group {
-    /* Estilos existentes son adecuados */
+/* === Estilos Sección Comparación === */
+.comparison-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
+.control-group {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.control-group label {
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--ddm-gris-oscuro);
+}
+
+.dashboard-selector {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--ddm-gris-medio);
+    border-radius: 6px;
+    font-family: var(--fuente-secundaria);
+    font-size: 0.95em;
+    background-color: var(--ddm-blanco);
+    cursor: pointer;
+}
+
+#comparison-container.dashboard-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.iframe-slot {
+    border: 1px solid var(--ddm-gris-claro);
+    border-radius: 12px;
+    background-color: #fdfdfd;
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+}
+
+.iframe-slot .iframe-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--ddm-gris-medio);
+    text-align: center;
+    padding: 20px;
+    display: block;
+}
+
+.iframe-slot iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    visibility: hidden;
+}
+
+.iframe-slot iframe[src]:not([src="about:blank"]) {
+    visibility: visible;
+}
+
+.iframe-slot iframe[src]:not([src="about:blank"]) + .iframe-placeholder {
+    display: none;
+}
+
+/* === Pie de Página (Footer) === */
 footer {
     margin-top: 60px;
     padding: 40px 0;
@@ -231,6 +318,7 @@ footer {
     color: var(--ddm-gris-oscuro);
 }
 
+/* === Botón Volver Arriba === */
 #scrollTopBtn {
     display: none;
     position: fixed;
@@ -251,7 +339,6 @@ footer {
 
 #scrollTopBtn.visible {
     display: block;
-    opacity: 1;
 }
 
 #scrollTopBtn:hover {
@@ -259,41 +346,26 @@ footer {
     transform: scale(1.1);
 }
 
-/* === Estilos para la sección de Beneficios (Adaptados) === */
-#section-beneficios-ddm h2 {
-    text-align: center;
-    display: block;
+/* === Responsividad === */
+@media (max-width: 768px) {
+    .header-text h1 { font-size: 2em; }
+    .dashboard-section h2 { font-size: 1.7em; }
+    .iframe-slot { min-height: 550px; }
 }
-#section-beneficios-ddm h2 .fas {
-    color: var(--ddm-naranja);
-    margin-right: 10px;
-}
-.beneficios-intro {
-    text-align: center;
-    font-size: 1.1em;
-    margin: 0 auto 50px auto;
-    color: var(--ddm-gris-oscuro);
-    max-width: 850px;
-}
-.beneficios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-.beneficio-categoria h3 {
-    color: var(--ddm-naranja);
-}
-.beneficio-item {
-    border-left: 4px solid var(--ddm-naranja);
-}
-.beneficio-icon {
-    color: var(--ddm-naranja);
-}
-.beneficios-conclusion {
-    background-color: var(--ddm-violeta-oscuro);
-    color: var(--ddm-blanco);
-}
-.beneficios-conclusion h4 {
-    color: var(--ddm-naranja);
+
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .header-text { text-align: center; }
+    .header-text h1 { font-size: 1.8em; }
+    .dashboard-section h2 {
+        text-align: center;
+        display: block;
+    }
+    .dashboard-section h2::after {
+        margin: 10px auto 0;
+    }
+    .iframe-slot { min-height: 500px; }
 }
