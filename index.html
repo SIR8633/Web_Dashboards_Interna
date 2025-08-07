@@ -36,12 +36,124 @@
                 <button class="filter-btn" data-filter="section-internos">Reportes Internos</button>
                 <button class="filter-btn" data-filter="section-analisis">Análisis Bases</button>
                 <button class="filter-btn" data-filter="section-embedded-reports">Reportes Embebidos</button>
-                </div>
+            </div>
 
             <div id="search-container">
                 <input type="search" id="search-input" placeholder="Buscar dashboard por título o descripción...">
             </div>
             
+            <section class="dashboard-section" id="section-ddm">
+                <h2>Tableros de áreas - DDM</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/Zke5VYP8Bc?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare&bookmarkGuid=bcc60763-9431-4a65-aa7f-4274774d960e" target="_blank">
+                            <img src="img/tableros/tablero-comite.png" alt="Vista previa Tablero Comité" loading="lazy">
+                            <div class="card-content">
+                                <h3>Tablero - Comité</h3>
+                                <p>Dashboard de resultados (CE)</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/19Suji4Egd?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare&bookmarkGuid=1d25a0f4-bd06-4c7a-821e-5b549ec0a159" target="_blank">
+                            <img src="img/tableros/tablero-productividad.png" alt="Vista previa Tablero Productividad" loading="lazy">
+                             <div class="card-content">
+                                <h3>Tablero - Productividad</h3>
+                                <p>Dashboard de productividad</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/VqujV6Iikr?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare&bookmarkGuid=90d5f97f-cfef-487b-9b12-89b5192da1e9" target="_blank">
+                            <img src="img/tableros/tablero-cchh.png" alt="Vista previa Tablero Capital Humano" loading="lazy">
+                             <div class="card-content">
+                                <h3>Tablero - Capital humano</h3>
+                                <p>Dashboard de CCHH</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-section" id="section-clientes">
+                <h2>Reportes - Clientes</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/2zLGM9510d?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare&bookmarkGuid=1234ec8e-1ca1-4e29-a112-1b42ec3d1e02" target="_blank">
+                            <img src="img/clientes/lenovo.png" alt="Vista previa Lenovo" loading="lazy">
+                            <div class="card-content">
+                                <h3>Cliente - LENOVO</h3>
+                                <p>Dashboard - LENOVO</p>
+                            </div>
+                        </a>
+                    </div>
+                     <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/VBHPY5HbLq?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare&bookmarkGuid=eec3f953-ca5e-4ac7-b5bd-8c2b582c90e8" target="_blank">
+                            <img src="img/clientes/mccain.png" alt="Vista previa McCain" loading="lazy">
+                            <div class="card-content">
+                                <h3>Cliente - McCain</h3>
+                                <p>Dashboard - McCain</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-section" id="section-internos">
+                <h2>Reportes - Internos</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/P-EcpJk6b7?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare&bookmarkGuid=45e5fec2-2acd-4d81-9542-5c1de4503406" target="_blank">
+                            <img src="img/clientes/lenovo.png" alt="Vista previa Lenovo" loading="lazy">
+                            <div class="card-content">
+                                <h3>Interno - LENOVO</h3>
+                                <p>Dashboard - LENOVO</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-section" id="section-analisis">
+                <h2>Análisis de bases</h2>
+                <div class="dashboard-grid">
+                     <div class="dashboard-item">
+                        <a href="https://app.powerbi.com/links/ogLcPQ71NT?ctid=8d95905e-4c9c-4212-bd40-d6dba7f50768&pbi_source=linkShare" target="_blank">
+                            <img src="img/clientes/qualia.png" alt="Vista previa QUALIA (salud)" loading="lazy">
+                            <div class="card-content">
+                                <h3>QUALIA (salud)</h3>
+                                <p>Análisis - QUALIA (salud)</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-section" id="section-embedded-reports">
+                <h2>Reportes Embebidos Interactivos (Comparador)</h2>
+                <div class="comparison-controls">
+                    <div class="control-group">
+                        <label for="select-dashboard-1">Seleccionar Dashboard 1:</label>
+                        <select id="select-dashboard-1" class="dashboard-selector">
+                            <option value="">-- Elegir Dashboard --</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="select-dashboard-2">Seleccionar Dashboard 2:</label>
+                        <select id="select-dashboard-2" class="dashboard-selector">
+                            <option value="">-- Elegir Dashboard --</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="comparison-container" class="dashboard-comparison-grid">
+                    <div class="iframe-slot" id="iframe-slot-1">
+                        <iframe title="Dashboard Seleccionado 1" src="about:blank" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                    <div class="iframe-slot" id="iframe-slot-2">
+                        <iframe title="Dashboard Seleccionado 2" src="about:blank" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                </div>
+            </section>
             </div>
     </main>
 
