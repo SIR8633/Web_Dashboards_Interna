@@ -207,6 +207,15 @@ header {
     border-bottom: 1px solid var(--ddm-gris-claro);
 }
 
+/* Ajuste para visualizar correctamente los logos de clientes e internos */
+#section-clientes .dashboard-item img,
+#section-internos .dashboard-item img,
+#section-analisis .dashboard-item img {
+    object-fit: contain;
+    padding: 15px;
+    background-color: var(--ddm-blanco);
+}
+
 .dashboard-item .card-content {
     padding: 20px;
     display: flex;
